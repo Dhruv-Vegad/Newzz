@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/headlines">
+
+    <fragment
+        android:id="@+id/articles"
+        android:name="com.insane.newzz.ui.fragments.Articles"
+        android:label="Articles" >
+        <argument
+            android:name="article"
+            app:argType="com.insane.newzz.models.Article" />
+    </fragment>
+    <fragment
+        android:id="@+id/favourite"
+        android:name="com.insane.newzz.ui.fragments.Favourites"
+        android:label="Favourite" >
+        <action
+            android:id="@+id/action_favourite_to_articles3"
+            app:destination="@id/articles" />
+    </fragment>
+    <fragment
+        android:id="@+id/headlines"
+        android:name="com.insane.newzz.ui.fragments.Headlines"
+        android:label="Headlines" >
+        <action
+            android:id="@+id/action_headlines_to_articles3"
+            app:destination="@id/articles" />
+        <!-- Add this action to connect headlines to search3 -->
+        <action
+            android:id="@+id/action_headlines_to_search3"
+            app:destination="@id/search3" />
+    </fragment>
+    <fragment
+        android:id="@+id/search3"
+        android:name="com.insane.newzz.ui.fragments.Search"
+        android:label="Search" >
+        <action
+            android:id="@+id/action_search3_to_articles3"
+            app:destination="@id/articles" />
+    </fragment>
+</navigation>

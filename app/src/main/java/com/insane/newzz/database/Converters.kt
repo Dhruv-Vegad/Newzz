@@ -1,0 +1,17 @@
+package com.insane.newzz.database
+
+import androidx.room.TypeConverter
+import com.insane.newzz.models.Source
+
+class Converters {
+    @TypeConverter
+    //Storing Source object
+    fun fromSource(source: Source): String {
+        return source.name
+    }
+
+    @TypeConverter
+    fun toSource(name: String): Source {
+        return Source(name, name)
+    }
+}
